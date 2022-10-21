@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </head>
+
+  <div class="container">
+  <body >
+
+
+      <div class="row justify-content-start">
+        <div class="col-4">
+
+        </div>
+    </div>
+
+    <% if model_signed_in? %>
+      Welcome
+    <%= current_model.email%>
+    <%= link_to "Sign_out", destroy_model_session_path, data: {turbo_method: :delete} %>
+    <%else%>
+    <%= link_to "Sign_in", model_session_path %>
+    <%end%>
+
+    <div class="row justify-content-start">
+     <div class="col-4">
+       <%= yield %>
+
+   </div>
+
+   </br></br></br>
+  </body>
+</div>
+
+
+<div class="row justify-content-start">
+  <div class="col-4">
+
+  </div>
+</html>
